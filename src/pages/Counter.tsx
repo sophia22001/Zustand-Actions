@@ -1,4 +1,4 @@
-import useCountStore from "../store/useCountStore";
+import useCountStore from '../store/useCountStore';
 
 const Counter = () => {
   const { count, increase, decrease, reset } = useCountStore();

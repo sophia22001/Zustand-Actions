@@ -1,5 +1,5 @@
-import "./App.css";
-import { TodoScreen } from "./pages/Todo";
+import './App.css';
+import { TodoScreen } from './pages/Todo';
 
 function App() {
   return (

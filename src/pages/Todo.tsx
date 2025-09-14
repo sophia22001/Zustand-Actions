@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useAuthStore } from "../store/useAuthStore";
-import { useTodoStore } from "../store/useTodoStore";
+import { useState } from 'react';
+import { useAuthStore } from '../store/useAuthStore';
+import { useTodoStore } from '../store/useTodoStore';
 
 export function TodoScreen() {
   const { user, login, logout } = useAuthStore();
   const { todos, addTodo, toggleTodo, clearTodos } = useTodoStore();
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   return (
     <div className="p-5 max-w-md mx-auto">
@@ -22,7 +22,7 @@ export function TodoScreen() {
         </div>
       ) : (
         <button
-          onClick={() => login("Alice")}
+          onClick={() => login('Alice')}
           className="px-3 py-1 bg-blue-500 text-blue-400 rounded hover:bg-blue-600 transition"
         >
           Login as Alice
@@ -42,7 +42,7 @@ export function TodoScreen() {
           onClick={() => {
             if (input.trim()) {
               addTodo(input);
-              setInput("");
+              setInput('');
             }
           }}
           className="px-4 py-2 bg-green-500 text-blue-400 rounded hover:bg-green-600 transition"
@@ -58,7 +58,7 @@ export function TodoScreen() {
             key={item.id}
             onClick={() => toggleTodo(item.id)}
             className={`cursor-pointer py-1 text-lg ${
-              item.done ? "line-through text-gray-400" : ""
+              item.done ? 'line-through text-gray-400' : ''
             }`}
           >
             {item.text}
@@ -69,8 +69,7 @@ export function TodoScreen() {
       {/* 완료 개수 */}
       {todos.length > 0 && (
         <p className="text-sm mt-3 text-gray-600">
-          {todos.filter((item) => item.done).length} completed out of{" "}
-          {todos.length}
+          {todos.filter((item) => item.done).length} completed out of {todos.length}
         </p>
       )}
 
