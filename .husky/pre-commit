@@ -1,4 +1,10 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+echo "🔍 커밋 전 lint를 검사합니다..."
 
-npx lint-staged
+# lint-staged 실행
+if npx lint-staged; then
+  echo "✅ 모든 lint 규칙 통과"
+  exit 0
+else
+  echo "❌ lint 검사 실패! 커밋이 취소되었습니다."
+  exit 1
+fi

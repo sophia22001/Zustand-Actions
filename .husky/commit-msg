@@ -1,0 +1,13 @@
+COMMIT_MSG_FILE=$1
+
+echo "✏️ 커밋 메시지 검증 시작..."
+
+# commitlint 실행
+if npx --no-install commitlint --edit "$COMMIT_MSG_FILE"; then
+  echo "✅ 커밋 메시지 형식 통과!"
+  exit 0
+else
+  echo "❌ 커밋 메시지 형식 오류! 커밋이 취소되었습니다."
+  echo "   올바른 메시지 형식 예시: feat(scope): 메시지 내용"
+  exit 1
+fi
